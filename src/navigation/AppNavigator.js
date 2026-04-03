@@ -9,6 +9,7 @@ import { COLORS } from '../utils/constants';
 import LoginScreen from '../screens/LoginScreen';
 import RegisterScreen from '../screens/RegisterScreen';
 import DashboardScreen from '../screens/DashboardScreen';
+import LocationScreen from '../screens/LocationScreen';
 import AlertsScreen from '../screens/AlertsScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import { AuthContext } from '../context/AuthContext';
@@ -35,7 +36,9 @@ const AppTabs = () => {
                         iconName = focused ? 'home' : 'home-outline';
                     } else if (route.name === 'Alerts') {
                         iconName = focused ? 'notifications' : 'notifications-outline';
-                    } else if (route.name === 'Settings') {
+                    }else if (route.name === 'Location') {
+                      iconName = focused ? 'location' : 'location-outline';
+                    }else if (route.name === 'Settings') {
                         iconName = focused ? 'settings' : 'settings-outline';
                     }
                     return <Ionicons name={iconName} size={size} color={color} />;
@@ -52,6 +55,7 @@ const AppTabs = () => {
             })}
         >
             <Tab.Screen name="Dashboard" component={DashboardScreen} />
+            <Tab.Screen name="Location" component={LocationScreen} />
             <Tab.Screen name="Alerts" component={AlertsScreen} />
             <Tab.Screen name="Settings" component={SettingsScreen} />
         </Tab.Navigator>
